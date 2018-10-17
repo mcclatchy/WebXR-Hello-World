@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WebXR Hello World!</title>
+    <!-- Include the aframe library -->
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <!-- Start your XR scene. This creates a <canvas> element, starts three.js
+    rendering and adds default lighting -->
+    <a-scene>
+      <!-- Create a "Sky Box" by referencing in an equirectangular image. The
+      <a-sky> element creates a large sphere with a color or texture mapped to
+      the inside. -->
+      <a-sky src="sample_equirectangulars/3.jpg"></a-sky>
+
+      <!-- 3D text is really tricky, and a-frame can handle it a few different
+      ways. Read up here https://aframe.io/docs/0.8.0/components/text.html -->
+    	<a-text
+    		font="kelsonsans"
+    		value="Hello World"
+    		width="6"
+    		position="-1 2 -3"
+    		rotation="0 15 0"
+    		color="#bbb">
+    	</a-text>
+
+      <!-- <a-box> It's a box! These primatives are simple but powerful. They
+      can even work with physics components
+      https://github.com/donmccurdy/aframe-physics-system -->
+    	<a-box
+    		position="-1 0.5 -3"
+    		rotation="0 45 0"
+    		color="#4CC3D9"
+    		shadow>
+    	</a-box>
+
+      <!-- This one is a sphere. It works very similarly to <a-sky> it's just
+      smaller. To make a 360 video player read up on it's cousin the videosphere
+      https://aframe.io/docs/0.8.0/primitives/a-videosphere.html#sidebar -->
+    	<a-sphere
+    		position="0 1.25 -5"
+    		radius="1.25"
+    		color="#EF2D5E"
+    		shadow>
+    	</a-sphere>
+
+      <!-- I'm running out of stuff to say about shapes so on this one I'll add
+      a material. Now it looks like a tree stump, sorta! 3D materials can get
+      very complex very quickly, but here's a good place to start:
+      https://aframe.io/docs/0.8.0/components/material.html#sidebar>
+      -->
+    	<a-cylinder
+    		position="1 0.75 -3"
+    		radius="0.5"
+    		height="1.5"
+        material="src:sample_material_textures/bark.png; repeat:3 3;"
+    		shadow>
+    	</a-cylinder>
+
+      <!-- It's a bird, it's superman, nahh just <a-plane>.
+      By default all faces of a piece of geometery are only viewable from one
+      direction called the "front." For example if you "walk" into the
+      <a-sphere> element you'l notice you don't see the inside, it just
+      disappears. You can use material="side:double;" to make things visible
+      from both sides. Try moving the attribute from a-plane below to the
+      <a-sphere> and walking through it again.
+
+      -->
+    	<a-plane
+    		position="0 0 -4"
+    		rotation="-90 0 0"
+    		width="4"
+    		height="4"
+    		color="#7BC8A4"
+        material="side:double;"
+    		shadow>
+    	</a-plane>
+
+    </a-scene>
+  </body>
+</html>

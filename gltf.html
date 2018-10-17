@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WebXR Hello World!</title>
+    <!-- Include the aframe library -->
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <!-- Start your XR scene. You can add a background color to a scene if you
+    don't want a textured skybox. You can also take peak under the hood at things
+    like the number of frames rendered per second, the number of faces and
+    vertices being renderd ad more by adding to your scene 'stats' -->
+    <a-scene stats background="color: #4CC3D9">
+
+
+      <!-- As you start building more complex scenes, with heavier load times
+      you'll want to manage how and when different assets are loading, when
+      they're held in memory and when they are made available to the render
+      For that we have the <a-asset> element.
+      More Info Here:
+      https://aframe.io/docs/0.8.0/core/asset-management-system.html#lt-a-asset-item-gt-->
+      <a-assets>
+        <a-asset-item id="ben" src="gltf_sample/ben-head.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- 3D file types are pretty complicated. Common types of .FBX .OBJ and
+      .DAE, but a new standard called glTF (Graphics Library Transition Format)
+      is immerging with massive industry support.
+
+      Related a bundled bianry version of the format '.glb' is now
+      supported by Facebook's 3D Posts and the Open Graph.
+
+      Read more about the format here: https://www.khronos.org/gltf/
+
+      or aframe's gltf loader here:
+      https://aframe.io/docs/0.8.0/components/gltf-model.html#sidebar  -->
+      <a-entity position="0 1.1 -2.5" scale=" .2 .2 .2 " gltf-model="#ben">
+
+        <!-- aframe also offers a pretty full featured way to control animations
+        there are currently no GUI options for designing animations though, so
+        any complex animation will require colaboration between developers and
+        animators, as we look at scaling this past the NVL staff.
+        https://aframe.io/docs/0.8.0/core/animations.html
+        -->
+        <a-animation attribute="rotation"
+        dur="10000"
+        fill="forwards"
+        easing="linear"
+        to="0 360 0"
+        repeat="indefinite"></a-animation>
+
+      </a-entity>
+
+      <!-- And of course lighting is an important of any 3D rendering software.
+      https://aframe.io/docs/0.8.0/components/light.html#sidebar
+        -->
+      <a-entity light="type:ambient"></a-entity>
+
+
+      <!--
+      This is scan uses an un-lit texture and looks more realistic without the
+      addition of lighting, but try uncommenting the lights below to see what
+      lighting can do to the scene.
+      -->
+
+      <!--
+      <a-entity
+      light="intensity:4;
+            castShadow:true;
+            color:#ff1300;"
+      position="-10 1 1" >
+
+          <a-animation attribute="position"
+          dur="1000"
+          direction="alternate"
+          fill="forwards"
+          easing="linear"
+          to="10 1 1"
+          repeat="indefinite">
+          </a-animation>
+
+      </a-entity>
+
+      <a-entity
+      light="intensity:4;
+            castShadow:true;
+            color:#0013ff;"
+      position="-10 1 1" >
+
+          <a-animation attribute="position"
+          dur="1000"
+          delay="1000"
+          direction="alternate"
+          fill="forwards"
+          easing="linear"
+          to="10 1 1"
+          repeat="indefinite">
+          </a-animation>
+
+      </a-entity>
+
+    -->
+
+    </a-scene>
+  </body>
+</html>
