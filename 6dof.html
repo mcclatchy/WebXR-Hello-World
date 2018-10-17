@@ -7,9 +7,13 @@
   </head>
   <body>
     <!-- Start your XR scene. This creates a <canvas> element, starts three.js
-    rendering and adds default lighting. By default aframe scenes are only 5DofF 
-    if you want to move on the Z-axis you've got to turn on fly mode. ;)  -->
-    <a-scene fly="true">
+    rendering and adds default lighting.  -->
+    <a-scene>
+       <!-- By default aframe scenes are only 5DofF if you want to move on the 
+       Z-axis you've got to turn on fly mode. ;) To do that you must override 
+       the default camera by adding your own camera element and marking setting
+       fly=true -->
+      <a-entity camera fly="true" ></a-entity>
       <!-- Create a "Sky Box" by referencing in an equirectangular image. The
       <a-sky> element creates a large sphere with a color or texture mapped to
       the inside. -->
