@@ -7,13 +7,13 @@
   </head>
   <body>
     <!-- Start your XR scene. This creates a <canvas> element, starts three.js
-    rendering and adds default lighting -->
-    <a-scene>
+    rendering and adds default lighting. By default aframe scenes are only 5DofF 
+    if you want to move on the Z-axis you've got to turn on fly mode. ;)  -->
+    <a-scene fly="true">
       <!-- Create a "Sky Box" by referencing in an equirectangular image. The
       <a-sky> element creates a large sphere with a color or texture mapped to
-      the inside. By default aframe scenes are only 5DofF if you want to move 
-      on the Z-axis you've got to turn on fly mode. ;) -->
-      <a-sky src="sample_equirectangulars/3.jpg" fly="true"></a-sky>
+      the inside. -->
+      <a-sky src="sample_equirectangulars/3.jpg" ></a-sky>
 
       <!-- 3D text is really tricky, and a-frame can handle it a few different
       ways. Read up here https://aframe.io/docs/0.8.0/components/text.html -->
